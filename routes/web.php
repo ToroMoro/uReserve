@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LivewireController;
 use App\Http\Controllers\AlpineTestController;
+use App\Http\Controllers\EventController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,13 +29,12 @@ Route::middleware([
     })->name('dashboard');
 });
 
+
 Route::prefix('manager')
 ->middleware('can:manager-higher')
 ->group(function(){
-    Route::get('index', function() {
+    Route::resource('events', EventController::class);
         // return view('welcome');
-        dd('manager');
-    });
 });
 
 Route::middleware('can:user-higher')
