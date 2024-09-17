@@ -1,4 +1,5 @@
 import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
 
 const setting = {
     enableTime: true,
@@ -9,5 +10,5 @@ const setting = {
     maxTime: "20:00",
 };
 flatpickr("#event_date", { minDate: "today", maxDate: new Date().fp_incr(30) });
-flatpickr("#start_time", { setting });
-flatpickr("#end_time", { setting });
+flatpickr("#start_time", setting);
+flatpickr("#end_time", setting);

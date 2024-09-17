@@ -10,6 +10,13 @@
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
             <section class="text-gray-600 body-font">
             <div class="container px-5 py-24 mx-auto">
+                @if (session('status'))
+                    <div class="mb-4 text-sm font-medium text-green-600">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                <button onclick="location.href='{{ route('events.create') }}'">Create New</button>
+                <div></div>
                 <div class="w-full mx-auto overflow-auto lg:w-2/3">
                 <table class="w-full text-left whitespace-no-wrap table-auto">
                     <thead>
@@ -38,7 +45,6 @@
                 </table>
                 {{ $events->links()}}
                 </div>
-                <button onclick="location.hred='{{route('event.create')}}"></button>
             </div>
             </section>
 
