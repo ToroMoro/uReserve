@@ -7,7 +7,7 @@ use App\Http\Requests\UpdateEventRequest;
 use Illuminate\Support\Facades\DB;
 use App\Models\Event;
 use Illuminate\Support\Carbon;
-use App\Http\Controllers\eventService;
+use App\Services\EventService;
 
 class EventController extends Controller
 {
@@ -76,7 +76,12 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        $event = Event::findOrFail($event->id);
+        $eventDate = $event->eventDate;
+        $startTime = $event->startTime;
+        $endTime = $event->endTime;
+
+        return view('manager.events.show', compact('event', 'eventDate', 'startTime', 'endTime'));
     }
 
     /**

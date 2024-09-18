@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Services;
 
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 
-class eventService
+
+class EventService
 {
     public static function checkEventDuplication($eventDate, $startTime, $endTime)
     {
         return DB::table('events')
-        ->whereDate('sart_date', $eventDate)
+        ->whereDate('start_date', $eventDate)
         ->whereTime('end_date', '>', $startTime)
         ->whereTime('start_date', '<', $endTime)
         ->exists();

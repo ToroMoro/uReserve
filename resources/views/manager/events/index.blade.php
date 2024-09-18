@@ -1,4 +1,4 @@
-<x-app-layout>
+a<x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
             Manage Events
@@ -33,7 +33,7 @@
                     <tbody>
                         @foreach ($events as $event)
                         <tr>
-                            <td class="px-4 py-3">{{ $event->name }}</td>
+                            <td class="px-4 py-3"><a href="{{ route('events.show', ['event' => $event->id]) }}">{{ $event->name }}</a></td>
                             <td class="px-4 py-3">{{ $event->start_date }}</td>
                             <td class="px-4 py-3">{{ $event->end_date }}</td>
                             <td class="px-4 py-3">ato</td>
