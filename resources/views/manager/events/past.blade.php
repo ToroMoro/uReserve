@@ -1,7 +1,7 @@
 a<x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            Manage Events
+            Past Events
         </h2>
     </x-slot>
 
@@ -15,10 +15,7 @@ a<x-app-layout>
                         {{ session('status') }}
                     </div>
                 @endif
-                <div class="flex justify-between">
-                    <button onclick="location.href='{{ route('events.past') }}'" class="flex px-6 py-2 mb-4 ml-auto text-white bg-green-600 rounded focus:outline-none">Show Past Events</button>
-                    <button onclick="location.href='{{ route('events.create') }}'" class="flex px-6 py-2 mb-4 ml-auto text-white bg-indigo-600 rounded focus:outline-none">Create New</button>
-                </div>
+                <div></div>
                 <div class="w-full mx-auto overflow-auto lg:w-2/3">
                 <table class="w-full text-left whitespace-no-wrap table-auto">
                     <thead>

@@ -33,6 +33,7 @@ Route::middleware([
 Route::prefix('manager')
 ->middleware('can:manager-higher')
 ->group(function(){
+    Route::get('events/past',[EventController::class, 'past'])->name('events.past');
     Route::resource('events', EventController::class);
         // return view('welcome');
 });
@@ -40,7 +41,6 @@ Route::prefix('manager')
 Route::middleware('can:user-higher')
 ->group(function(){
     Route::get('index', function() {
-        // return view('welcome');
         dd('user');
     });
 });

@@ -20,8 +20,17 @@ class EventService
 
     public static function joinDateAndTime($date, $time)
     {
-        $start = $date." ".$time;
-        return Carbon::createFromFormat('Y-m-d H:i', $start);
+        $dateTime= $date." ".$time;
+        return Carbon::createFromFormat('Y/m/d H:i', $dateTime);
+    }
+
+    public static function countEventDuplication($eventDate, $startTime, $endTime)
+    {
+        return DB::table('events')
+        ->whereDate('start_date', $eventDate)
+        ->whereTime('end_date', '>', $startTime)
+        ->whereTime('start_date', '<', $endTime)
+        ->count();
     }
 }
 
