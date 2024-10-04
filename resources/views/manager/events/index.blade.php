@@ -38,7 +38,13 @@ a<x-app-layout>
                             <td class="px-4 py-3"><a href="{{ route('events.show', ['event' => $event->id]) }}">{{ $event->name }}</a></td>
                             <td class="px-4 py-3">{{ $event->start_date }}</td>
                             <td class="px-4 py-3">{{ $event->end_date }}</td>
-                            <td class="px-4 py-3">ato</td>
+                            <td class="px-4 py-3">
+                                @if(is_null($event->numberOfPeople))
+                                0
+                                @else
+                                {{ $event->numberOfPeople }}
+                                @endif
+                            </td>
                             <td class="px-4 py-3">{{ $event->max_people }}</td>
                             <td class="px-4 py-3">{{ $event->is_visible }}</td>
                         </tr>

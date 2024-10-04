@@ -21,7 +21,7 @@ class EventService
     public static function joinDateAndTime($date, $time)
     {
         $dateTime= $date." ".$time;
-        return Carbon::createFromFormat('Y/m/d H:i', $dateTime);
+        return Carbon::createFromFormat('Y-m-d H:i', $dateTime);
     }
 
     public static function countEventDuplication($eventDate, $startTime, $endTime)
